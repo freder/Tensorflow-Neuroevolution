@@ -17,14 +17,14 @@ class OptimizerFactory:
         # Register parameters for optimizer
         self.optimizer_parameters = optimizer_parameters
 
-    def __str__(self) -> str:
+    def __str__(self):
         """
         @return: string representation of the optimizer
         """
         return "Optimizer: {} (Config: {})".format(self.optimizer_parameters['class_name'],
                                                    self.optimizer_parameters['config'])
 
-    def create_optimizer(self) -> tf.keras.optimizers.Optimizer:
+    def create_optimizer(self):
         """
         @return: newly created deserialized instance of a TF optimizer
         """
@@ -34,10 +34,10 @@ class OptimizerFactory:
         """"""
         return OptimizerFactory(self.optimizer_parameters)
 
-    def get_parameters(self) -> {str: Union[str, dict]}:
+    def get_parameters(self):
         """"""
         return self.optimizer_parameters
 
-    def get_name(self) -> str:
+    def get_name(self):
         """"""
         return self.optimizer_parameters['class_name']

@@ -108,7 +108,7 @@ class CoDeepNEATPopulation(BasePopulation):
         # Print summary footer
         print("\n\033[1m" + '#' * 142 + "\033[0m\n")
 
-    def serialize(self) -> dict:
+    def serialize(self):
         """
         Serializes all CoDeepNEAT population variables to a json compatible dictionary and returns it
         @return: serialized population variables as a json compatible dict

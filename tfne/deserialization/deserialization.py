@@ -10,7 +10,7 @@ from tfne.deserialization.codeepneat import deserialize_codeepneat_encoding
 from tfne.deserialization.codeepneat import deserialize_codeepneat_population
 
 
-def load_genome(genome_file_path=None, serialized_genome=None, **kwargs) -> BaseGenome:
+def load_genome(genome_file_path=None, serialized_genome=None, **kwargs):
     """
     Loads, deserializes and returns a TFNE saved genotype as the according genome instance. Requires either a genome
     file path or an already loaded but still serialized genome. Not both.
@@ -36,7 +36,7 @@ def load_genome(genome_file_path=None, serialized_genome=None, **kwargs) -> Base
                                   .format(serialized_genome['genome_type']))
 
 
-def load_population(population_file_path=None, serialized_population=None, dtype=None, **kwargs) -> BasePopulation:
+def load_population(population_file_path=None, serialized_population=None, dtype=None, **kwargs):
     """
     Loads, deserializes and returns a TFNE population as a specific population instance. Requires either a population
     file path or an already loaded but still serialized population. Not both.
@@ -63,7 +63,7 @@ def load_population(population_file_path=None, serialized_population=None, dtype
                                   .format(serialized_population['population_type']))
 
 
-def load_encoding(encoding_file_path=None, serialized_encoding=None, dtype=None, **kwargs) -> BaseEncoding:
+def load_encoding(encoding_file_path=None, serialized_encoding=None, dtype=None, **kwargs):
     """
     Loads, deserializes and returns a TFNE encoding as a specific encoding instance. Requires either an encoding file
     path or an already loaded but still serialized encoding. Not both.
@@ -94,7 +94,7 @@ def load_state(state_file_path=None,
                serialized_state=None,
                dtype=None,
                population_only=False,
-               **kwargs) -> (BasePopulation, Optional[BaseEncoding]):
+               **kwargs):
     """
     Loads, deserializes and returns a TFNE state, consisting of population and encoding, as their specific according
     encoding and population instances. Requires either a state file path or an already loaded but still serialized

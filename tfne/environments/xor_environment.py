@@ -54,11 +54,11 @@ class XOREnvironment(BaseEnvironment):
             self.epochs = kwargs['epochs']
             self.batch_size = kwargs['batch_size']
 
-    def eval_genome_fitness(self, genome) -> float:
+    def eval_genome_fitness(self, genome):
         # TO BE OVERRIDEN
         raise RuntimeError()
 
-    def _eval_genome_fitness_weight_training(self, genome) -> float:
+    def _eval_genome_fitness_weight_training(self, genome):
         """
         Evaluates the genome's fitness by obtaining the associated Tensorflow model and optimizer, compiling them and
         then training them for the config specified duration. The genomes fitness is then calculated and returned as
@@ -84,7 +84,7 @@ class XOREnvironment(BaseEnvironment):
 
         return round(evaluated_fitness, 4)
 
-    def _eval_genome_fitness_non_weight_training(self, genome) -> float:
+    def _eval_genome_fitness_non_weight_training(self, genome):
         """
         Evaluates genome's fitness by calculating and returning the binary cross entropy in percent of the predicted to
         the actual results
@@ -106,7 +106,7 @@ class XOREnvironment(BaseEnvironment):
         print("Predicted Values:\t{}\n".format(genome(self.x)))
         print("Achieved Fitness:\t{}\n".format(evaluated_fitness))
 
-    def duplicate(self) -> XOREnvironment:
+    def duplicate(self):
         """
         @return: New instance of the XOR environment with identical parameters
         """
@@ -115,10 +115,10 @@ class XOREnvironment(BaseEnvironment):
         else:
             return XOREnvironment(False, verbosity=self.verbosity)
 
-    def get_input_shape(self) -> (int,):
+    def get_input_shape(self):
         """"""
         return (2,)
 
-    def get_output_shape(self) -> (int,):
+    def get_output_shape(self):
         """"""
         return (1,)

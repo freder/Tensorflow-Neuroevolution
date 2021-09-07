@@ -8,14 +8,14 @@ class BasePopulation(object, metaclass=ABCMeta):
     """
 
     @abstractmethod
-    def summarize_population(self) -> dict:
+    def summarize_population(self):
         """
         Prints the current state of all population variables to stdout in a formatted and clear manner
         """
         raise NotImplementedError("Subclass of BasePopulation does not implement 'summarize_population()'")
 
     @abstractmethod
-    def serialize(self) -> dict:
+    def serialize(self):
         """
         Serializes all population variables to a json compatible dictionary and returns it
         @return: serialized population variables as a json compatible dict

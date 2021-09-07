@@ -26,14 +26,14 @@ class CoDeepNEATModuleBase(object, metaclass=ABCMeta):
         self.fitness = 0
 
     @abstractmethod
-    def __str__(self) -> str:
+    def __str__(self):
         """
         @return: string representation of the module
         """
         raise NotImplementedError("Subclass of CoDeepNEATModuleBase does not implement '__str__()'")
 
     @abstractmethod
-    def create_module_layers(self) -> (tf.keras.layers.Layer, ...):
+    def create_module_layers(self):
         """
         Instantiate all TF layers represented by the module and return as iterable tuple
         @return: iterable tuple of instantiated TF layers
@@ -41,7 +41,7 @@ class CoDeepNEATModuleBase(object, metaclass=ABCMeta):
         raise NotImplementedError("Subclass of CoDeepNEATModuleBase does not implement 'create_module_layers()'")
 
     @abstractmethod
-    def create_downsampling_layer(self, in_shape, out_shape) -> tf.keras.layers.Layer:
+    def create_downsampling_layer(self, in_shape, out_shape):
         """
         Create layer associated with this module that downsamples the non compatible input shape to the input shape of
         the current module, which is the output shape of the downsampling layer.
@@ -54,7 +54,7 @@ class CoDeepNEATModuleBase(object, metaclass=ABCMeta):
     @abstractmethod
     def create_mutation(self,
                         offspring_id,
-                        max_degree_of_mutation) -> CoDeepNEATModuleBase:
+                        max_degree_of_mutation):
         """
         Create a mutated module and return it
         @param offspring_id: int of unique module ID of the offspring
@@ -67,7 +67,7 @@ class CoDeepNEATModuleBase(object, metaclass=ABCMeta):
     def create_crossover(self,
                          offspring_id,
                          less_fit_module,
-                         max_degree_of_mutation) -> CoDeepNEATModuleBase:
+                         max_degree_of_mutation):
         """
         Create a crossed over module and return it
         @param offspring_id: int of unique module ID of the offspring
@@ -78,14 +78,14 @@ class CoDeepNEATModuleBase(object, metaclass=ABCMeta):
         raise NotImplementedError("Subclass of CoDeepNEATModuleBase does not implement 'create_crossover()'")
 
     @abstractmethod
-    def serialize(self) -> dict:
+    def serialize(self):
         """
         @return: serialized constructor variables of the module as json compatible dict
         """
         raise NotImplementedError("Subclass of CoDeepNEATModuleBase does not implement 'serialize()'")
 
     @abstractmethod
-    def get_distance(self, other_module) -> float:
+    def get_distance(self, other_module):
         """
         Calculate the distance between 2 TFNE CoDeepNEAT modules with high values indicating difference, low values
         indicating similarity
@@ -95,7 +95,7 @@ class CoDeepNEATModuleBase(object, metaclass=ABCMeta):
         raise NotImplementedError("Subclass of CoDeepNEATModuleBase does not implement 'get_distance()'")
 
     @abstractmethod
-    def get_module_type(self) -> str:
+    def get_module_type(self):
         """
         @return: string representation of module type as used in CoDeepNEAT config
         """
@@ -104,11 +104,11 @@ class CoDeepNEATModuleBase(object, metaclass=ABCMeta):
     def set_fitness(self, fitness):
         self.fitness = fitness
 
-    def get_id(self) -> int:
+    def get_id(self):
         return self.module_id
 
-    def get_fitness(self) -> float:
+    def get_fitness(self):
         return self.fitness
 
-    def get_merge_method(self) -> dict:
+    def get_merge_method(self):
         return self.merge_method

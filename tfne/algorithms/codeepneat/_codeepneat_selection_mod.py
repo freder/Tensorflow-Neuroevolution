@@ -3,7 +3,7 @@ from typing import Union
 
 
 class CoDeepNEATSelectionMOD:
-    def _select_modules_basic(self) -> ({Union[int, str]: int}, {int: int}, {int}):
+    def _select_modules_basic(self):
         """"""
         ### Generational Parent Determination ###
         # Determine potential parents of the module species for offspring creation. Modules are ordered by their fitness
@@ -70,7 +70,7 @@ class CoDeepNEATSelectionMOD:
         mod_spec_extinct = list()
         return mod_spec_offspring, mod_spec_parents, mod_spec_extinct
 
-    def _select_modules_param_distance_fixed(self) -> ({Union[int, str]: int}, {int: int}, {int}):
+    def _select_modules_param_distance_fixed(self):
         """"""
         ### Species Extinction ###
         # Determine if species can be considered for extinction. Critera: Species existed long enough; species can be
@@ -232,7 +232,7 @@ class CoDeepNEATSelectionMOD:
         # mod_spec_extinct {int} listing all modules species that went extinct in this generation
         return mod_spec_offspring, mod_spec_parents, mod_spec_extinct
 
-    def _select_modules_param_distance_dynamic(self) -> ({Union[int, str]: int}, {int: int}, {int}):
+    def _select_modules_param_distance_dynamic(self):
         """"""
         # selection process identical for both variants of module speciation
         return self._select_modules_param_distance_fixed()

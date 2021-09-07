@@ -20,7 +20,7 @@ class BaseNeuroevolutionAlgorithm(object, metaclass=ABCMeta):
                                   "'initialize_population()'")
 
     @abstractmethod
-    def evaluate_population(self, environment) -> (int, float):
+    def evaluate_population(self, environment):
         """
         Evaluate all members of the population on the supplied evaluation environment by passing each member to the
         environment and assigning the resulting fitness back to the member. Return the generation counter and the best
@@ -38,7 +38,7 @@ class BaseNeuroevolutionAlgorithm(object, metaclass=ABCMeta):
         raise NotImplementedError("Subclass of BaseNeuroevolutionAlgorithm does not implement 'summarize_evaluation()'")
 
     @abstractmethod
-    def evolve_population(self) -> bool:
+    def evolve_population(self):
         """
         Evolve all members of the population according to the NE algorithms specifications. Return a bool flag
         indicating if the population went extinct during the evolution
@@ -56,14 +56,14 @@ class BaseNeuroevolutionAlgorithm(object, metaclass=ABCMeta):
         raise NotImplementedError("Subclass of BaseNeuroevolutionAlgorithm does not implement 'save_state()'")
 
     @abstractmethod
-    def get_best_genome(self) -> BaseGenome:
+    def get_best_genome(self):
         """
         @return: best genome so far determined by the evolutionary process
         """
         raise NotImplementedError("Subclass of BaseNeuroevolutionAlgorithm does not implement 'get_best_genome()'")
 
     @abstractmethod
-    def get_eval_instance_count(self) -> int:
+    def get_eval_instance_count(self):
         """
         @return: int, specifying how many evaluation threads the NE algorithm uses
         """

@@ -160,7 +160,7 @@ class CoDeepNEAT(BaseNeuroevolutionAlgorithm,
             if self.bp_spec_type != 'basic' and self.pop.bp_species_counter not in self.pop.bp_species_repr:
                 self.pop.bp_species_repr[self.pop.bp_species_counter] = blueprint_id
 
-    def evaluate_population(self, environment) -> (int, float):
+    def evaluate_population(self, environment):
         """
         Evaluate the population by building the specified amount of genomes from each blueprint, all having randomly
         assigned specific modules for the inherent blueprint module species. Set the evaluated fitness of each blueprint
@@ -300,7 +300,7 @@ class CoDeepNEAT(BaseNeuroevolutionAlgorithm,
         """"""
         self.pop.summarize_population()
 
-    def evolve_population(self) -> bool:
+    def evolve_population(self):
         """
         Evolve the population according to the CoDeepNEAT algorithm by first selecting all modules and blueprints, which
         eliminates low performing members and species and determines members elligible for being parents of offspring.
@@ -399,10 +399,10 @@ class CoDeepNEAT(BaseNeuroevolutionAlgorithm,
               .format(self.pop.generation_counter,
                       save_file_path))
 
-    def get_best_genome(self) -> CoDeepNEATGenome:
+    def get_best_genome(self):
         """"""
         return self.pop.best_genome
 
-    def get_eval_instance_count(self) -> int:
+    def get_eval_instance_count(self):
         """"""
         return 1

@@ -129,7 +129,7 @@ class CoDeepNEATBlueprint:
             for node, dep in node_deps.items():
                 node_deps[node] = dep - dependencyless
 
-    def __str__(self) -> str:
+    def __str__(self):
         """
         @return: string representation of the blueprint
         """
@@ -140,7 +140,7 @@ class CoDeepNEATBlueprint:
                     self.species,
                     self.optimizer_factory.get_name())
 
-    def visualize(self, show=True, save_dir_path=None) -> str:
+    def visualize(self, show=True, save_dir_path=None):
         """
         Visualize the blueprint. If 'show' flag is set to true, display the blueprint after rendering. If
         'save_dir_path' is supplied, save the rendered blueprint as file to that directory. Return the saved file path
@@ -187,7 +187,7 @@ class CoDeepNEATBlueprint:
         # Return the file path to which the blueprint graph plot was saved
         return save_dir_path + f"{filename}.svg"
 
-    def calculate_gene_distance(self, other_bp) -> float:
+    def calculate_gene_distance(self, other_bp):
         """
         Calculate the distance between 2 blueprint graphs by determining it as the congruence of genes and subtracting
         it from the maximum distance of 1
@@ -205,13 +205,13 @@ class CoDeepNEATBlueprint:
 
         return 1.0 - gene_congruence
 
-    def create_optimizer(self) -> tf.keras.optimizers.Optimizer:
+    def create_optimizer(self):
         """
         @return: TF optimizer instance from the associated and pre-configured optimizer factory
         """
         return self.optimizer_factory.create_optimizer()
 
-    def copy_parameters(self) -> ({int: object}, object):
+    def copy_parameters(self):
         """
         @return: deepcopied blueprint graph and optimizer factory
         """
@@ -227,7 +227,7 @@ class CoDeepNEATBlueprint:
         self.graph_topology = list()
         self._process_graph()
 
-    def serialize(self) -> dict:
+    def serialize(self):
         """
         Serialize all blueprint variables to a json compatible dictionary and return it
         @return: serialized blueprint variables as json compatible dict
@@ -257,30 +257,30 @@ class CoDeepNEATBlueprint:
         """"""
         self.fitness = fitness
 
-    def get_id(self) -> int:
+    def get_id(self):
         """"""
         return self.blueprint_id
 
-    def get_fitness(self) -> float:
+    def get_fitness(self):
         """"""
         return self.fitness
 
-    def get_blueprint_graph(self) -> {int: object}:
+    def get_blueprint_graph(self):
         """"""
         return self.blueprint_graph
 
-    def get_species(self) -> {int, ...}:
+    def get_species(self):
         """"""
         return self.species
 
-    def get_node_species(self) -> {int: int}:
+    def get_node_species(self):
         """"""
         return self.node_species
 
-    def get_node_dependencies(self) -> {int: {int, ...}}:
+    def get_node_dependencies(self):
         """"""
         return self.node_dependencies
 
-    def get_graph_topology(self) -> [{int, ...}, ...]:
+    def get_graph_topology(self):
         """"""
         return self.graph_topology

@@ -62,7 +62,7 @@ class CoDeepNEATModuleDenseDropout(CoDeepNEATModuleBase):
         if self_initialization_flag:
             self._initialize()
 
-    def __str__(self) -> str:
+    def __str__(self):
         """
         @return: string representation of the module
         """
@@ -98,7 +98,7 @@ class CoDeepNEATModuleDenseDropout(CoDeepNEATModuleBase):
                                             self.config_params['dropout_rate']['max'],
                                             self.config_params['dropout_rate']['step'])
 
-    def create_module_layers(self) -> (tf.keras.layers.Layer, ...):
+    def create_module_layers(self):
         """
         Instantiate TF layers with their respective configuration that are represented by the current module
         configuration. Return the instantiated module layers in their respective order as a tuple.
@@ -120,13 +120,13 @@ class CoDeepNEATModuleDenseDropout(CoDeepNEATModuleBase):
                                                     dtype=self.dtype)
             return dense_layer, dropout_layer
 
-    def create_downsampling_layer(self, in_shape, out_shape) -> tf.keras.layers.Layer:
+    def create_downsampling_layer(self, in_shape, out_shape):
         """"""
         raise NotImplementedError("Downsampling has not yet been implemented for DenseDropout Modules")
 
     def create_mutation(self,
                         offspring_id,
-                        max_degree_of_mutation) -> CoDeepNEATModuleDenseDropout:
+                        max_degree_of_mutation):
         """
         Create mutated DenseDropout module and return it. Categorical parameters are chosen randomly from all available
         values. Sortable parameters are perturbed through a random normal distribution with the current value as mean
@@ -200,7 +200,7 @@ class CoDeepNEATModuleDenseDropout(CoDeepNEATModuleBase):
     def create_crossover(self,
                          offspring_id,
                          less_fit_module,
-                         max_degree_of_mutation) -> CoDeepNEATModuleDenseDropout:
+                         max_degree_of_mutation):
         """
         Create crossed over DenseDropout module and return it. Carry over parameters of fitter parent for categorical
         parameters and calculate parameter average between both modules for sortable parameters
@@ -237,7 +237,7 @@ class CoDeepNEATModuleDenseDropout(CoDeepNEATModuleBase):
                                             dtype=self.dtype,
                                             **offspring_params)
 
-    def serialize(self) -> dict:
+    def serialize(self):
         """
         @return: serialized constructor variables of the module as json compatible dict
         """
@@ -254,7 +254,7 @@ class CoDeepNEATModuleDenseDropout(CoDeepNEATModuleBase):
             'dropout_rate': self.dropout_rate
         }
 
-    def get_distance(self, other_module) -> float:
+    def get_distance(self, other_module):
         """
         Calculate distance between 2 DenseDropout modules by inspecting each parameter, calculating the congruence
         between each and eventually averaging the out the congruence. The distance is returned as the average
@@ -294,6 +294,6 @@ class CoDeepNEATModuleDenseDropout(CoDeepNEATModuleBase):
         # Return the distance as the distance of the average congruence to the perfect congruence of 1.0
         return round(1.0 - statistics.mean(congruence_list), 4)
 
-    def get_module_type(self) -> str:
+    def get_module_type(self):
         """"""
         return 'DenseDropout'

@@ -11,7 +11,7 @@ class BaseGenome(object, metaclass=ABCMeta):
     """
 
     @abstractmethod
-    def __call__(self, inputs) -> tf.Tensor:
+    def __call__(self, inputs):
         """
         Call genome to start inference based on the internal model. Return the results of the inference.
         @param inputs: genome model inputs
@@ -20,14 +20,14 @@ class BaseGenome(object, metaclass=ABCMeta):
         raise NotImplementedError("Subclass of BaseGenome does not implement '__call__()'")
 
     @abstractmethod
-    def __str__(self) -> str:
+    def __str__(self):
         """
         @return: string representation of the genome
         """
         raise NotImplementedError("Subclass of BaseGenome does not implement '__str__()'")
 
     @abstractmethod
-    def visualize(self, show, save_dir_path, **kwargs) -> str:
+    def visualize(self, show, save_dir_path, **kwargs):
         """
         Visualize the genome. If 'show' flag is set to true, display the genome after rendering. If 'save_dir_path' is
         supplied, save the rendered genome as file to that directory. Return the saved file path as string.
@@ -39,14 +39,14 @@ class BaseGenome(object, metaclass=ABCMeta):
         raise NotImplementedError("Subclass of BaseGenome does not implement 'visualize()'")
 
     @abstractmethod
-    def serialize(self) -> dict:
+    def serialize(self):
         """
         @return: serialized constructor variables of the genome as json compatible dict
         """
         raise NotImplementedError("Subclass of BaseGenome does not implement 'serialize()'")
 
     @abstractmethod
-    def save_genotype(self, save_dir_path) -> str:
+    def save_genotype(self, save_dir_path):
         """
         Save genotype of genome to 'save_dir_path' directory. Return file path to which the genotype has been saved to
         as string.
@@ -73,21 +73,21 @@ class BaseGenome(object, metaclass=ABCMeta):
         raise NotImplementedError("Subclass of BaseGenome does not implement 'set_fitness()'")
 
     @abstractmethod
-    def get_genotype(self) -> Any:
+    def get_genotype(self):
         """
         @return: One or multiple variables representing the genome genotype
         """
         raise NotImplementedError("Subclass of BaseGenome does not implement 'get_genotype()'")
 
     @abstractmethod
-    def get_model(self) -> tf.keras.Model:
+    def get_model(self):
         """
         @return: TF model represented by genome genotype
         """
         raise NotImplementedError("Subclass of BaseGenome does not implement 'get_model()'")
 
     @abstractmethod
-    def get_optimizer(self) -> Union[None, tf.keras.optimizers.Optimizer]:
+    def get_optimizer(self):
         """
         Return either None or TF optimizer depending on if the genome encoding associates an optimizer with the genome
         @return: None | TF optimizer associated with genome
@@ -95,14 +95,14 @@ class BaseGenome(object, metaclass=ABCMeta):
         raise NotImplementedError("Subclass of BaseGenome does not implement 'get_optimizer()'")
 
     @abstractmethod
-    def get_id(self) -> int:
+    def get_id(self):
         """
         @return: int of genome ID
         """
         raise NotImplementedError("Subclass of BaseGenome does not implement 'get_id()'")
 
     @abstractmethod
-    def get_fitness(self) -> float:
+    def get_fitness(self):
         """
         @return: float of genome fitness
         """

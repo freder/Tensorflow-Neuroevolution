@@ -10,7 +10,7 @@ class BaseEncoding(object, metaclass=ABCMeta):
     """
 
     @abstractmethod
-    def create_genome(self, *args) -> (int, BaseGenome):
+    def create_genome(self, *args):
         """
         Create genome from genotype being passed as one or multiple parameters. Return the genome ID as well as the
         newly created genome itself.
@@ -20,7 +20,7 @@ class BaseEncoding(object, metaclass=ABCMeta):
         raise NotImplementedError("Subclass of BaseEncoding does not implement 'create_genome()'")
 
     @abstractmethod
-    def serialize(self) -> dict:
+    def serialize(self):
         """
         Serialize state of all encoding variables to a json compatible dictionary and return it
         @return: serialized state of the encoding as json compatible dict

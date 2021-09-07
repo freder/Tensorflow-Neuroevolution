@@ -50,7 +50,7 @@ class CoDeepNEATEncoding(BaseEncoding):
             self.node_counter = initial_state['node_counter']
             self.conn_split_history = initial_state['conn_split_history']
 
-    def create_initial_module(self, mod_type, config_params) -> (int, CoDeepNEATModuleBase):
+    def create_initial_module(self, mod_type, config_params):
         """
         Create an initial module by incrementing module ID counter and supplying initial parent_mutation
         @param mod_type: string of the module type that is to be created
@@ -68,7 +68,7 @@ class CoDeepNEATEncoding(BaseEncoding):
                                                       dtype=self.dtype,
                                                       self_initialization_flag=True)
 
-    def create_mutated_module(self, parent_module, max_degree_of_mutation) -> (int, CoDeepNEATModuleBase):
+    def create_mutated_module(self, parent_module, max_degree_of_mutation):
         """
         @param parent_module: dict summarizing the mutation of the parent module
         @param max_degree_of_mutation: float between 0 and 1 specifying the maximum degree of mutation
@@ -81,7 +81,7 @@ class CoDeepNEATEncoding(BaseEncoding):
     def create_crossover_module(self,
                                 parent_module_1,
                                 parent_module_2,
-                                max_degree_of_mutation) -> (int, CoDeepNEATModuleBase):
+                                max_degree_of_mutation):
         """
         Create crossover module calling the crossover function of the fitter parent
         @param parent_module_1: CoDeepNEAT module
@@ -100,7 +100,7 @@ class CoDeepNEATEncoding(BaseEncoding):
                                                                          parent_module_1,
                                                                          max_degree_of_mutation)
 
-    def create_blueprint_node(self, node, species) -> (int, CoDeepNEATBlueprintNode):
+    def create_blueprint_node(self, node, species):
         """
         Create blueprint node. If the node has created before assign it the same gene ID. If the node is novel, create
         a new gene ID.
@@ -117,7 +117,7 @@ class CoDeepNEATEncoding(BaseEncoding):
         bp_gene_id = self.gene_to_gene_id[gene_key]
         return bp_gene_id, CoDeepNEATBlueprintNode(bp_gene_id, node, species)
 
-    def create_node_for_split(self, conn_start, conn_end) -> int:
+    def create_node_for_split(self, conn_start, conn_end):
         """
         Determine unique node number based on the connection that is being split. The connection is defined by the start
         and end node. Produce the same new node number for each identical connection that is being split.
@@ -132,7 +132,7 @@ class CoDeepNEATEncoding(BaseEncoding):
 
         return self.conn_split_history[conn_key]
 
-    def create_blueprint_conn(self, conn_start, conn_end) -> (int, CoDeepNEATBlueprintConn):
+    def create_blueprint_conn(self, conn_start, conn_end):
         """
         Create blueprint connection. If the connection (identified by conn_start and conn_end nodes) has already been
         created before assign it the same gene id as before. If the connection is novel, create a new gene id.
@@ -151,7 +151,7 @@ class CoDeepNEATEncoding(BaseEncoding):
     def create_blueprint(self,
                          parent_mutation,
                          blueprint_graph,
-                         optimizer_factory) -> (int, CoDeepNEATBlueprint):
+                         optimizer_factory):
         """
         Create blueprint by incrementing blueprint counter and passing Blueprint parameters along
         @param parent_mutation: dict summarizing the parent mutation for the BP
@@ -171,7 +171,7 @@ class CoDeepNEATEncoding(BaseEncoding):
                       bp_assigned_modules,
                       output_layers,
                       input_shape,
-                      generation) -> (int, CoDeepNEATGenome):
+                      generation):
         """
         Create genome by incrementing genome counter and passing supplied genotype along
         @param blueprint: CoDeepNEAT blueprint instance
@@ -192,11 +192,11 @@ class CoDeepNEATEncoding(BaseEncoding):
                                                         origin_generation=generation)
 
     @staticmethod
-    def create_optimizer_factory(optimizer_parameters) -> OptimizerFactory:
+    def create_optimizer_factory(optimizer_parameters):
         """"""
         return OptimizerFactory(optimizer_parameters)
 
-    def serialize(self) -> dict:
+    def serialize(self):
         """
         @return: serialized state of the encoding as json compatible dict
         """

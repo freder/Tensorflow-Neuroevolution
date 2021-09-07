@@ -57,11 +57,11 @@ class CoDeepNEATGenome(BaseGenome,
         self.optimizer = self.blueprint.create_optimizer()
         self._create_model()
 
-    def __call__(self, inputs) -> tf.Tensor:
+    def __call__(self, inputs):
         """"""
         return self.model(inputs)
 
-    def __str__(self) -> str:
+    def __str__(self):
         """
         @return: string representation of the genome
         """
@@ -73,7 +73,7 @@ class CoDeepNEATGenome(BaseGenome,
                                                              self.blueprint.optimizer_factory.get_name(),
                                                              self.origin_generation)
 
-    def visualize(self, show=True, save_dir_path=None, **kwargs) -> str:
+    def visualize(self, show=True, save_dir_path=None, **kwargs):
         """
         Visualize the CoDeepNEAT genome through dot. If 'show' flag is set to true, display the genome after rendering.
         If 'save_dir_path' is supplied, save the rendered genome as file to that directory.
@@ -116,7 +116,7 @@ class CoDeepNEATGenome(BaseGenome,
         # Return the file path to which the genome plot was saved
         return save_file_path
 
-    def serialize(self) -> dict:
+    def serialize(self):
         """
         @return: serialized constructor variables of the genome as json compatible dict
         """
@@ -140,7 +140,7 @@ class CoDeepNEATGenome(BaseGenome,
 
         return serialized_genome
 
-    def save_genotype(self, save_dir_path) -> str:
+    def save_genotype(self, save_dir_path):
         """
         Save genotype of CoDeepNEAT genome to 'save_dir_path' directory. Return file path to which the genotype has
         been saved to as string.
@@ -172,20 +172,20 @@ class CoDeepNEATGenome(BaseGenome,
     def set_fitness(self, fitness):
         self.fitness = fitness
 
-    def get_genotype(self) -> (CoDeepNEATBlueprint, {int: CoDeepNEATModuleBase}, [dict]):
+    def get_genotype(self):
         """"""
         return self.blueprint, self.bp_assigned_modules, self.output_layers
 
-    def get_model(self) -> tf.keras.Model:
+    def get_model(self):
         """"""
         return self.model
 
-    def get_optimizer(self) -> tf.keras.optimizers.Optimizer:
+    def get_optimizer(self):
         """"""
         return self.optimizer
 
-    def get_id(self) -> int:
+    def get_id(self):
         return self.genome_id
 
-    def get_fitness(self) -> float:
+    def get_fitness(self):
         return self.fitness

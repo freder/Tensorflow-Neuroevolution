@@ -6,7 +6,7 @@ from tfne.encodings.codeepneat.codeepneat_blueprint import CoDeepNEATBlueprintNo
 
 
 class CoDeepNEATEvolutionBP:
-    def _evolve_blueprints(self, bp_spec_offspring, bp_spec_parents, mod_spec_extinct) -> [int]:
+    def _evolve_blueprints(self, bp_spec_offspring, bp_spec_parents, mod_spec_extinct):
         """"""
         ### Evolve Species of Elite Blueprints ###
         # Check if node module species of the elite blueprints belong to extinct module species. If so, create a

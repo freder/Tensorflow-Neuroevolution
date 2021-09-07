@@ -58,7 +58,7 @@ class EvolutionEngine:
         os.makedirs(self.backup_dir_path, exist_ok=True)
         print("Creating TFNE generational Backups to directory: {}".format(self.backup_dir_path))
 
-    def train(self) -> BaseGenome:
+    def train(self):
         """
         Starts the configured evolutionary training process. Initializes, then evaluates, summarizes and evolves
         population in loop until exit condition (extinction, max generations/fitness reached) is met. Returns the genome
@@ -110,6 +110,6 @@ class EvolutionEngine:
         # evolutionary process, even if the population went extinct.
         return self.ne_algorithm.get_best_genome()
 
-    def get_backup_dir_path(self) -> str:
+    def get_backup_dir_path(self):
         """"""
         return self.backup_dir_path

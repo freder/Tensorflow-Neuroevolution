@@ -5,7 +5,7 @@ from tfne.helper_functions import round_with_step
 
 
 class CoDeepNEATInitialization:
-    def _create_initial_blueprint(self, initial_node_species) -> (int, CoDeepNEATBlueprint):
+    def _create_initial_blueprint(self, initial_node_species):
         """"""
         # Create the dict that keeps track of the way a blueprint has been mutated or created
         parent_mutation = {'parent_id': None,

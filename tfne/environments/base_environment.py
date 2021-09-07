@@ -10,7 +10,7 @@ class BaseEnvironment(object, metaclass=ABCMeta):
     """
 
     @abstractmethod
-    def eval_genome_fitness(self, genome) -> float:
+    def eval_genome_fitness(self, genome):
         """
         Evaluates the genome's fitness in either the weight-training or non-weight-training variant. Returns the
         determined genome fitness.
@@ -28,21 +28,21 @@ class BaseEnvironment(object, metaclass=ABCMeta):
         raise NotImplementedError("Subclass of BaseEnvironment does not implement 'replay_genome()'")
 
     @abstractmethod
-    def duplicate(self) -> BaseEnvironment:
+    def duplicate(self):
         """
         @return: New instance of the environment with identical parameters
         """
         raise NotImplementedError("Subclass of BaseEnvironment does not implement 'duplicate()'")
 
     @abstractmethod
-    def get_input_shape(self) -> (int, ...):
+    def get_input_shape(self):
         """
         @return: Environment input shape that is required from the applied TF models
         """
         raise NotImplementedError("Subclass of BaseEnvironment does not implement 'get_input_shape()'")
 
     @abstractmethod
-    def get_output_shape(self) -> (int, ...):
+    def get_output_shape(self):
         """
         @return: Environment output shape that is required from the applied TF models
         """

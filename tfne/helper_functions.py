@@ -9,7 +9,7 @@ from PyQt5 import QtWidgets
 from tfne.visualizer import TFNEVWelcomeWindow
 
 
-def parse_configuration(config_path) -> object:
+def parse_configuration(config_path):
     """
     Takes a configuration file path, reads the configuration in ConfigParser and then returns it.
     @param config_path: string of configuration file path
@@ -22,7 +22,7 @@ def parse_configuration(config_path) -> object:
     return config
 
 
-def read_option_from_config(config, section, option) -> Any:
+def read_option_from_config(config, section, option):
     """
     @param config: ConfigParser instance
     @param section: string of the config section to read from
@@ -34,7 +34,7 @@ def read_option_from_config(config, section, option) -> Any:
     return value
 
 
-def round_with_step(value, minimum, maximum, step) -> Union[int, float]:
+def round_with_step(value, minimum, maximum, step):
     """
     @param value: int or float value to round
     @param minimum: int or float specifying the minimum value the rounded result can take

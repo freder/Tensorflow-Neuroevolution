@@ -10,7 +10,7 @@ from tfne.encodings.codeepneat.modules import MODULES
 from tfne.populations.codeepneat.codeepneat_population import CoDeepNEATPopulation
 
 
-def deserialize_codeepneat_population(serialized_population, dtype, module_config_params=None) -> CoDeepNEATPopulation:
+def deserialize_codeepneat_population(serialized_population, dtype, module_config_params=None):
     """
     Deserializes a complete serialized CoDeepNEAT population and returns the CoDeepNEAT population instance
     @param serialized_population: dict serialized CoDeepNEAT population
@@ -55,7 +55,7 @@ def deserialize_codeepneat_population(serialized_population, dtype, module_confi
     return CoDeepNEATPopulation(initial_state=initial_state)
 
 
-def deserialize_codeepneat_encoding(serialized_encoding, dtype) -> CoDeepNEATEncoding:
+def deserialize_codeepneat_encoding(serialized_encoding, dtype):
     """
     Deserialize a serialized CoDeepNEAT encoding and return a specific CoDeepNEAT instance.
     @param serialized_encoding: dict serialized CoDeepNEAT encoding
@@ -86,7 +86,7 @@ def deserialize_codeepneat_encoding(serialized_encoding, dtype) -> CoDeepNEATEnc
     return CoDeepNEATEncoding(dtype=dtype, initial_state=inital_state)
 
 
-def deserialize_codeepneat_genome(serialized_genome, module_config_params=None) -> CoDeepNEATGenome:
+def deserialize_codeepneat_genome(serialized_genome, module_config_params=None):
     """
     Deserializes a serialized CoDeepNEAT genome genotype and returns a specific CoDeepNEAT genome instance.
     @param serialized_genome: dict serialized CoDeepNEAT genome genotype
@@ -116,7 +116,7 @@ def deserialize_codeepneat_genome(serialized_genome, module_config_params=None) 
     return deserialized_genome
 
 
-def deserialize_codeepneat_module(mod_params, dtype, module_config_params=None) -> CoDeepNEATModuleBase:
+def deserialize_codeepneat_module(mod_params, dtype, module_config_params=None):
     """
     Deserializes a serialized CoDeepNEAT module and returns a specific CoDeepNEAT module instance
     @param mod_params: dict serialized parameters of the CoDeepNEAT module
@@ -140,7 +140,7 @@ def deserialize_codeepneat_module(mod_params, dtype, module_config_params=None) 
                                  **mod_params)
 
 
-def deserialize_codeepneat_blueprint(bp_params) -> CoDeepNEATBlueprint:
+def deserialize_codeepneat_blueprint(bp_params):
     """
     Deserializes a serialized CoDeepNEAT blueprint and returns a specific CoDeepNEAT blueprint instance
     @param bp_params: dict serialized parameters of the CoDeepNEAT blueprint
